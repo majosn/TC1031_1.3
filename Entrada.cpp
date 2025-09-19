@@ -22,6 +22,7 @@ struct Entrada {
     string mensaje;
 
     Entrada(const string& linea) {
+
         stringstream ss(linea);
 
     ss >> dia >> mes >> hora >> ip1 >> mensaje;
