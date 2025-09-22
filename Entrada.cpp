@@ -14,17 +14,20 @@ using std::stringstream;
 using namespace std;
 
 struct Entrada {
-    string mes;
     int dia;
+    string mes;
     string hora;
-    string ip;
+// agragar todas las partes de ip, port y mensaje
+    int ip1;
     string mensaje;
 
     Entrada(const string& linea) {
+
         stringstream ss(linea);
 
-        ss >> mes >> dia >> hora >> ip;
-        getline(ss, mensaje);
+    ss >> dia >> mes >> hora >> ip1 >> mensaje;
+
+
 
     };
 
@@ -40,15 +43,11 @@ void get_data() {
     string linea;
     while (getline(bitacora,linea,'\n')) {
 
-        cout << linea << std::endl;
+        Entrada registro(linea);
+        entries.push_back(registro);
 
-        //crear structs dinamicos por cada linea del txt
-        Entrada* registro = new Entrada(linea);
-        entries.push_back(*registro);
+        //cout << entries.size() << endl;
 
-        cout << entries.size() << endl;
-
-        //delete registro;
     }
     bitacora.close();
 
