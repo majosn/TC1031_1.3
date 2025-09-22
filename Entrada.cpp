@@ -14,20 +14,17 @@ using std::stringstream;
 using namespace std;
 
 struct Entrada {
-    int dia;
     string mes;
+    int dia;
     string hora;
-// agragar todas las partes de ip, port y mensaje
-    int ip1;
+    string ip;
     string mensaje;
 
     Entrada(const string& linea) {
-
         stringstream ss(linea);
 
-    ss >> dia >> mes >> hora >> ip1 >> mensaje;
-
-
+        ss >> mes >> dia >> hora >> ip;
+        getline(ss, mensaje);
 
     };
 
@@ -51,7 +48,7 @@ void get_data() {
 
         cout << entries.size() << endl;
 
-        delete registro;
+        //delete registro;
     }
     bitacora.close();
 
