@@ -43,15 +43,11 @@ void get_data() {
     string linea;
     while (getline(bitacora,linea,'\n')) {
 
-        cout << linea << std::endl;
+        Entrada registro(linea);
+        entries.push_back(registro);
 
-        //crear structs dinamicos por cada linea del txt
-        Entrada* registro = new Entrada(linea);
-        entries.push_back(*registro);
+        //cout << entries.size() << endl;
 
-        cout << entries.size() << endl;
-
-        delete registro;
     }
     bitacora.close();
 
